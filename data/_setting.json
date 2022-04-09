@@ -1,0 +1,10 @@
+{
+  "SSID": "",
+  "PSK": "",
+  "influx_mdns_addr": "",
+  "influx_ip_addr": "",
+  "influx_port": 8086,
+  "db_name": "",
+  "measurement": "",
+  "id": ""
+}
