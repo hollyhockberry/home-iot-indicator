@@ -13,7 +13,7 @@ static String SSID(""), PSK("");
 static String INFLUX_MDNS(""), INFLUX_IP("");
 static int INFLUX_PORT = 8086;
 static String DB_NAME(""), MEASUREMENT(""), ID("");
-static Adafruit_NeoPixel strip(8, 32, NEO_GRB + NEO_KHZ800);
+static Adafruit_NeoPixel strip(8, 26, NEO_GRB + NEO_KHZ800);
 
 template<typename T>
 T Key(const char* key, const T initial, const DynamicJsonDocument& json) {
