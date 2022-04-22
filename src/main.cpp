@@ -123,11 +123,11 @@ void setup() {
 
 void loop() {
   if (!update()) {
-    ::delay(100);
-    return;
+    ::esp_restart();
+  } else {
+    ::esp_sleep_enable_timer_wakeup(5 * 1000000);
+    ::esp_deep_sleep_start();
   }
-  ::esp_sleep_enable_timer_wakeup(5 * 1000000);
-  ::esp_deep_sleep_start();
   for (;;) {}
   // never reach...
 }
