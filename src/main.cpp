@@ -48,7 +48,11 @@ bool connectWiFi() {
   }
   WiFi.mode(WIFI_STA);
   WiFi.begin(SSID.c_str(), PSK.c_str());
+  const auto start = ::millis();
   while (WiFi.status() != WL_CONNECTED) {
+    if ((::millis() - start) > 5000) {
+      return false;
+    }
     ::delay(500);
   }
   return true;
@@ -61,7 +65,11 @@ void disconnectWiFi() {
 
 String address() {
   if (!INFLUX_MDNS.equals("")) {
+    const auto start = ::millis();
     while (!MDNS.begin(WiFi.macAddress().c_str())) {
+      if ((::millis() - start) > 5000) {
+        return "";
+      }
       ::delay(100);
     }
     return MDNS.queryHost(INFLUX_MDNS).toString();
