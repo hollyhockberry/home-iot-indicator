@@ -97,7 +97,7 @@ bool update() {
   }
   const String url = "http://" + ::address() + ":" + String(INFLUX_PORT, 10)
       + "/query?db=" + DB_NAME
-      + "&q=SELECT%20*%20FROM%20" + MEASUREMENT
+      + "&q=SELECT%20exist%20FROM%20" + MEASUREMENT
       + "%20WHERE%20id='" + ID + "'"
       + "%20ORDER%20BY%20time%20DESC%20LIMIT%201";
   HTTPClient http;
